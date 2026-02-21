@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Coleta</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: x-large;
+            
+        }
+    </style>
+</head>
+<body>
+    <p id="items">Itens coletados: 0</p>
+    <button id="collect">Coletar Moeda</button>
+    <p id="win-message"></p>
+
+    <script>
+        let collectedItems = 0;
+        
+        document.getElementById('collect').addEventListener('click', () => {
+            while (collectedItems < 10) {
+                collectedItems++;
+                document.getElementById('items').textContent = `Itens coletados: ${collectedItems}`;
+                break;
+            }
+            if (collectedItems === 10) {
+                document.getElementById('win-message').textContent = "Parabéns! Você completou o desafio!";
+                document.getElementById('collect').disabled = true;
+            }
+        })
+    </script>
+</body>
+</html>
